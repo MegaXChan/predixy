@@ -36,12 +36,12 @@ public:
     }
     void set(int err)
     {
-#if _GNU_SOURCE
-        mStr = strerror_r(err, mBuf, sizeof(mBuf));
-#else
+// #if _GNU_SOURCE
+//         mStr = strerror_r(err, mBuf, sizeof(mBuf));
+// #else
         strerror_r(err, mBuf, sizeof(mBuf));
         mStr = mBuf;
-#endif
+// #endif
     }
     const char* str() const
     {
